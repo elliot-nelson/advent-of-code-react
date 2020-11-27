@@ -1,0 +1,51 @@
+body, html {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #93b884;
+  color: #164a41;
+}
+
+header {
+  background-color: #4d774e;
+  color: #ffffff;
+  line-height: 2em;
+  padding: 0 16px;
+}
+
+.puzzle-2019-01 {
+}
+
+.puzzle-2019-01 ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+.puzzle-2019-01 li {
+  border: solid 2px #164a41;
+  border-radius: 4px;
+  width: 8em;
+  margin: 4px;
+}
+
+.puzzle-2019-01 span.gadget-icon {
+  background-color: #164a41;
+  color: #93b884;
+  color: #f1b24a;
+  display: block;
+  font-size: 1.5em;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+}
+
+.puzzle-2019-01 span.gadget-fuel {
+  padding: 4px;
+}
+
+.puzzle-2019-01 li {
+}
