@@ -25,6 +25,14 @@ const icons = [
   'wrench'
 ];
 
+function commas(number) {
+  let result = String(number);
+  if (result.length > 3) {
+    result = `${result.slice(0, -3)},${result.slice(-3)}`;
+  }
+  return result;
+}
+
 function fuelRequired(mass) {
   return Math.floor(mass / 3) - 2;
 }
@@ -63,9 +71,12 @@ class Puzzle extends React.Component {
         <span class="gadget-icon">
           <FontAwesomeIcon icon={gadget.icon} />
         </span>
-        {gadget.masses[0]}
-        <FontAwesomeIcon icon="oil-can" />
-        {gadget.totalFuelMass}
+        <span class="gadget-weight">
+          <FontAwesomeIcon icon="weight-hanging" /> {commas(gadget.masses[0])}
+        </span>
+        <span class="gadget-fuel">
+          <FontAwesomeIcon icon="oil-can" /> {commas(gadget.totalFuelMass)}
+        </span>
       </li>
     );
     if (this.state.part1) {
@@ -120,18 +131,11 @@ class Puzzle extends React.Component {
 export default function Page() {
   return <div>
       <header>
-        <FontAwesomeIcon icon="calendar" /> 2019
-        <FontAwesomeIcon icon="calendar-day" /> Day 01
-        <FontAwesomeIcon icon="puzzle-piece" /> The Tyranny of the Rocket Equation
+        <FontAwesomeIcon icon="caret-square-right" /> The Tyranny of the Rocket Equation <span>(2019 Day 1)</span>
       </header>
-      <div>Hello world!</div>
-      <FontAwesomeIcon icon="space-shuttle" />
-      <FontAwesomeIcon icon="satellite" />
-      <FontAwesomeIcon icon="wrench" />
-      <FontAwesomeIcon icon="ethernet" />
-      <FontAwesomeIcon icon="network-wired" />
-      <FontAwesomeIcon icon="network-wired" />
-      <Link to="/2019/02/">Go to Day 2</Link>
       <Puzzle />
     </div>
 }
+
+
+      //<!--<Link to="/2019/02/">Go to Day 2</Link>-->

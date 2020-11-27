@@ -1,6 +1,7 @@
 body, html {
   margin: 0px;
   padding: 0px;
+  font-family: 'Rubrik', sans-serif;
 }
 
 body {
@@ -13,6 +14,11 @@ header {
   color: #ffffff;
   line-height: 2em;
   padding: 0 16px;
+  font-weight: 600;
+}
+
+header span {
+    opacity: 0.75;
 }
 
 .puzzle-2019-01 {
@@ -21,15 +27,16 @@ header {
 .puzzle-2019-01 ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   list-style: none;
 }
 
 .puzzle-2019-01 li {
   border: solid 2px #164a41;
   border-radius: 4px;
-  width: 8em;
   margin: 4px;
+  text-align: center;
+  width: 8em;
 }
 
 .puzzle-2019-01 span.gadget-icon {
@@ -40,10 +47,16 @@ header {
   font-size: 1.5em;
   height: 2em;
   line-height: 2em;
-  text-align: center;
+  margin-bottom: 3px;
+}
+
+.puzzle-2019-01 span.gadget-weight {
+  display: block;
+  padding: 4px;
 }
 
 .puzzle-2019-01 span.gadget-fuel {
+  display: block;
   padding: 4px;
 }
 

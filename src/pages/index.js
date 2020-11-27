@@ -1,6 +1,5 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import PuzzleYear2019Day01 from '../components/puzzle-year-2019-day-01.js';
 
 export default function Home() {
   return <div>
@@ -10,9 +9,6 @@ export default function Home() {
       <FontAwesomeIcon icon="wrench" />
       <FontAwesomeIcon icon="ethernet" />
       <FontAwesomeIcon icon="network-wired" />
-      <PuzzleYear2019Day01>
-        Hello!
-      </PuzzleYear2019Day01>
       <FontAwesomeIcon icon="network-wired" />
     </div>
 }

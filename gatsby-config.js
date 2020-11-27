@@ -7,5 +7,14 @@
 module.exports = {
   /* Your site config here */
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `rubrik`
+        ],
+        display: 'swap'
+      }
+    }
   ]
 }
