@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './index.css';
@@ -38,9 +38,8 @@ function fuelRequired(mass) {
 }
 
 function addFuel(gadget) {
-  console.log(['called:', gadget]);
   let fuel = fuelRequired(gadget.masses[gadget.masses.length - 1]);
-  if (fuel >= 0) {
+  if (fuel > 0) {
     gadget.masses.push(fuel);
     gadget.totalFuelMass += fuel;
     return true;
@@ -53,44 +52,49 @@ function addFuelToAll(gadgets) {
   return gadgets.reduce((added, gadget) => addFuel(gadget) || added, false);
 }
 
+/* Puzzle Visuals */
+
 class Puzzle extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       gadgets: [],
-      running: false
+      frame: 0
     };
 
     this.handleRunPuzzle = this.handleRunPuzzle.bind(this);
-    this.step = this.step.bind(this);
+    this.update = this.update.bind(this);
+  }
+
+  componentDidMount() {
+    this.handleRunPuzzle();
   }
 
   render() {
     let items = this.state.gadgets.map(gadget =>
       <li key={gadget.id}>
-        <span class="gadget-icon">
+        <span className="gadget-icon">
           <FontAwesomeIcon icon={gadget.icon} />
         </span>
-        <span class="gadget-weight">
-          <FontAwesomeIcon icon="weight-hanging" /> {commas(gadget.masses[0])}
-        </span>
-        <span class="gadget-fuel">
-          <FontAwesomeIcon icon="oil-can" /> {commas(gadget.totalFuelMass)}
+        <span className="gadget-weight">
+          <FontAwesomeIcon icon="weight-hanging" /> <b>{commas(gadget.masses[0])}</b>
+          {gadget.masses.slice(1).map(mass => <span>
+            <br /><FontAwesomeIcon icon="oil-can" /> {commas(mass)}
+          </span>)}
         </span>
       </li>
     );
-    if (this.state.part1) {
-      items.push(<li key="part1">{this.state.part1}</li>);
-    }
-    if (this.state.part2) {
-      items.push(<li key="part2">{this.state.part2}</li>);
-    }
     return (
-      <div class="puzzle-2019-01">
+      <div className="puzzle-2019-01">
         <ul>
           {items}
         </ul>
-        <a href="#" onClick={this.handleRunPuzzle}>Run puzzleee</a>
+        <div className="solution">
+          <h4>Part 1 &nbsp; <FontAwesomeIcon icon="oil-can" /></h4>
+          <pre className="part1">{this.state.part1 || '...'}</pre>
+          <h4>Part 2 &nbsp; <FontAwesomeIcon icon="oil-can" /></h4>
+          <pre className="part2">{this.state.part2 || '...'}</pre>
+        </div>
       </div>
     )
   }
@@ -100,38 +104,70 @@ class Puzzle extends React.Component {
       id: `gadget-${idx}`,
       icon: icons[idx % icons.length],
       masses: [mass],
-      totalFuelMass: 0
+      totalFuelMass: 0,
+      fuelDisplayed: 0
     }));
     this.setState({
-      gadgets
+      gadgets,
+      frame: 0
     });
-    setTimeout(this.step, 500);
+    setTimeout(this.update, 33);
   }
 
-  async step() {
-    let added = addFuelToAll(this.state.gadgets);
-    this.setState({ gadgets: this.state.gadgets });
-    console.log(added);
-    if (added) {
-      setTimeout(this.step, 500);
+  /*async update() {
+    if (this.state.finished) return;
+
+    if (this.state.index < this.state.gadgets.length) {
+      this.state.addedFuel = addFuel(this.state.gadgets[this.state.index]) || this.state.addedFuel;
+      this.state.index++;
     } else {
-      this.setState({
-        part1: this.state.gadgets.reduce((sum, gadget) => {
-          return sum + gadget.masses[1];
-        }, 0),
-        part2: this.state.gadgets.reduce((sum, gadget) => {
-          return sum + gadget.masses.slice(1).reduce((sum, value) => sum + value, 0);
-        }, 0)
-      });
-      console.log('done');
+      if (this.state.addedFuel) {
+        this.state.index = 0;
+        this.state.addedFuel = false;
+      } else {
+        this.state.finished = true;
+        this.setState({
+          part1: this.state.gadgets.reduce((sum, gadget) => {
+            return sum + gadget.masses[1];
+          }, 0),
+          part2: this.state.gadgets.reduce((sum, gadget) => {
+            return sum + gadget.masses.slice(1).reduce((sum, value) => sum + value, 0);
+          }, 0)
+        });
+      }
     }
+
+    this.setState({ gadgets: this.state.gadgets });
+    setTimeout(this.update, 1);
+  }*/
+  async update() {
+    if (this.state.finished) return;
+    this.state.frame++;
+
+    if (this.state.frame > 5) {
+      let addedFuel = addFuelToAll(this.state.gadgets);
+      if (!addedFuel) {
+        this.state.finished = true;
+        this.setState({
+          part1: this.state.gadgets.reduce((sum, gadget) => {
+            return sum + gadget.masses[1];
+          }, 0),
+          part2: this.state.gadgets.reduce((sum, gadget) => {
+            return sum + gadget.masses.slice(1).reduce((sum, value) => sum + value, 0);
+          }, 0)
+        });
+      }
+    }
+
+    this.setState({ gadgets: this.state.gadgets });
+    setTimeout(this.update, 33);
   }
 }
 
 export default function Page() {
   return <div>
       <header>
-        <FontAwesomeIcon icon="caret-square-right" /> The Tyranny of the Rocket Equation <span>(2019 Day 1)</span>
+        <FontAwesomeIcon icon="star" /> The Tyranny of the Rocket Equation <span>(2019 Day 1)</span>
       </header>
       <Puzzle />
     </div>
@@ -139,3 +175,5 @@ export default function Page() {
 
 
       //<!--<Link to="/2019/02/">Go to Day 2</Link>-->
+
+        //<a href="#" onClick={this.handleRunPuzzle}>Run puzzleee</a>
