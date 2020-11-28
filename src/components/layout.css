@@ -1,0 +1,22 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Rubrik', sans-serif;
+  }
+
+  body {
+    background-color: #93b884;
+    color: #164a41;
+  }
+
+  header {
+    background-color: #4d774e;
+    color: #ffffff;
+    line-height: 2em;
+    padding: 0 16px;
+    font-weight: 600;
+  }
+
+  header span {
+      opacity: 0.75;
+  }

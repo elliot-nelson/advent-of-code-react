@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './index.css';
+import Layout from '../../../components/layout';
 
 /* Normal stuff */
 
@@ -165,12 +165,12 @@ class Puzzle extends React.Component {
 }
 
 export default function Page() {
-  return <div>
+  return <Layout>
       <header>
         <FontAwesomeIcon icon="star" /> The Tyranny of the Rocket Equation <span>(2019 Day 1)</span>
       </header>
       <Puzzle />
-    </div>
+    </Layout>
 }
 
 
