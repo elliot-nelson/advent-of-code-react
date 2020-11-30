@@ -1,0 +1,61 @@
+.puzzle-2019-01 ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  list-style: none;
+}
+
+.puzzle-2019-01 li {
+  background-color: #164a41;
+  border: solid 2px #164a41;
+  border-radius: 4px;
+  margin: 4px;
+  text-align: center;
+  width: 8em;
+}
+
+.puzzle-2019-01 span.gadget-icon {
+  color: #93b884;
+  color: #f1b24a;
+  display: block;
+  font-size: 1.5em;
+  height: 2em;
+  line-height: 2em;
+  margin-bottom: 3px;
+}
+
+.puzzle-2019-01 span.gadget-weight {
+  display: block;
+  padding: 4px;
+  background-color: #93b884;
+  border-radius: 4px;
+  line-height: 1.5em;
+}
+
+.puzzle-2019-01 li {
+}
+
+div.solution {
+  background-color: #164a41;
+  color: #93b884;
+  border-radius: 4px;
+  margin: 16px;
+  padding: 16px;
+}
+
+div.solution h4 {
+  color: #f1b24a;
+}
+
+div.solution h4:first-child {
+  margin-top: 4px;
+}
+
+div.solution pre {
+  background-color: #333;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  margin: 8px 8px;
+}
