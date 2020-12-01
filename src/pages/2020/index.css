@@ -1,0 +1,18 @@
+.puzzle-index ul {
+  display: inline-flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.puzzle-index li {
+  background-color: #ce8859;
+  background-color: #333;
+  border-radius: 4px;
+  margin: 4px;
+  padding: 4px 8px;
+}
+
+.puzzle-index li a {
+  text-decoration: none;
+  font-weight: bold;
+}
