@@ -6,11 +6,17 @@ body, html {
 
   body {
     background-color: #93b884;
+    background-color: #eae7dc;
+    background-color: #ecc19c;
     color: #164a41;
+    color: #333;
   }
 
   header {
     background-color: #4d774e;
+    background-color: #d8c3a5;
+    background-color: #8e8d8a;
+    background-color: #1e847f;
     color: #ffffff;
     line-height: 2em;
     padding: 0 16px;

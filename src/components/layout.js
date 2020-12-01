@@ -2,8 +2,10 @@ import React from 'react';
 import './layout.css';
 import './github-corner.css';
 
-const githubBg = '#164a41';
-const githubFg = '#93b884';
+//const githubBg = '#164a41';
+const githubBg = '#333';
+//const githubFg = '#93b884';
+const githubFg = '#fff';
 
 export default function Layout({ children }) {
   return <div className="layout">
