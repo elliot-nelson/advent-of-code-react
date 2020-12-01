@@ -96,15 +96,18 @@ class Puzzle extends Component {
     this.lastTime = t;
 
     if (this.frame < this.values.length) {
+      // Animate loading the values onto the page
       this.state.values.push(this.values[this.frame]);
       //this.state.values= this.values;
       //this.frame = this.values.length;
       this.setState({ values: this.state.values });
     } else if (this.frame === this.values.length + 30) {
+      // Sort list ascending, to prepare for solve
       this.state.values.sort((a, b) => a - b);
       this.setState({ values: this.state.values });
       this.solvePart1 = solvePart1(this.state.values);
     } else if (this.frame > this.values.length + 60 && this.solvePart1) {
+      // Solving Part 1
       let next = this.solvePart1.next();
       this.setState(next.value);
       if (next.done) {
@@ -112,6 +115,7 @@ class Puzzle extends Component {
         this.solvePart2 = solvePart2(this.state.values);
       }
     } else if (this.frame > this.values.length + 60 && this.solvePart2) {
+      // Solving Part 2
       let next = this.solvePart2.next();
       this.setState(next.value);
       if (next.done) {
