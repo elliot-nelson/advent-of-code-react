@@ -83,6 +83,9 @@ class Puzzle extends Component {
               <br />
               SCAN COMPLETE_
               </fragment>}
+              <br />
+              <br />
+              <br />
               </pre>
             </div>
           </Flipped>
