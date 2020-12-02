@@ -75,7 +75,7 @@ class Puzzle extends Component {
           </Flipped>}
           <Flipped flipId="terminal">
             <div class="password-terminal">
-              <pre>&gt; TOBOGGAN            {progress}<br />
+              <pre>&gt; TOBOGGAN         {progress}<br />
               {this.state.password && <Fragment>
               RULE:     {this.state.password.range.join('-')} {this.state.password.letter}<br />
               PASSWORD: {this.state.password.password}_</Fragment>}
