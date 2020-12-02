@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Flipper, Flipped } from 'react-flip-toolkit';
 import PuzzlePage from '../../../components/puzzle-page';
 import { getPuzzleInput } from '../../../utils/utils';
 import './index.css';
@@ -57,26 +58,35 @@ class Puzzle extends Component {
 
     return (
       <div className="puzzle-2020-02">
-        {this.state.part1 &&
-        <div className="solution part1">
-          <h4>Part 1:</h4>
-          <pre>{this.state.part1}</pre>
-        </div>}
-        {this.state.part2 && <div className="solution part2">
-          <h4>Part 2:</h4>
-          <pre>{this.state.part2}</pre>
-        </div>}
-        <div class="password-terminal">
-          <pre>&gt; TOBOGGAN            {progress}<br />
-          {this.state.password && <Fragment>
-          RULE:     {this.state.password.range.join('-')} {this.state.password.letter}<br />
-          PASSWORD: {this.state.password.password}_</Fragment>}
-          {!this.state.password && <fragment>
-          <br />
-          SCAN COMPLETE_
-          </fragment>}
-          </pre>
-        </div>
+        <Flipper flipKey={[this.state.part1, this.state.part2].join(',')} stagger spring="gentle">
+          {this.state.part1 &&
+          <Flipped flipId="part1">
+            <div className="solution part1">
+              <h4>Part 1:</h4>
+              <pre>{this.state.part1}</pre>
+            </div>
+          </Flipped>}
+          {this.state.part2 &&
+          <Flipped flipId="part2">
+            <div className="solution part2">
+              <h4>Part 2:</h4>
+              <pre>{this.state.part2}</pre>
+            </div>
+          </Flipped>}
+          <Flipped flipId="terminal">
+            <div class="password-terminal">
+              <pre>&gt; TOBOGGAN            {progress}<br />
+              {this.state.password && <Fragment>
+              RULE:     {this.state.password.range.join('-')} {this.state.password.letter}<br />
+              PASSWORD: {this.state.password.password}_</Fragment>}
+              {!this.state.password && <fragment>
+              <br />
+              SCAN COMPLETE_
+              </fragment>}
+              </pre>
+            </div>
+          </Flipped>
+        </Flipper>
       </div>
     )
   }
