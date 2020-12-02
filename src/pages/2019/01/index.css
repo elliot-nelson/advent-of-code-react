@@ -32,30 +32,3 @@
   border-radius: 4px;
   line-height: 1.5em;
 }
-
-.puzzle-2019-01 li {
-}
-
-div.solution {
-  background-color: #164a41;
-  color: #93b884;
-  border-radius: 4px;
-  margin: 16px;
-  padding: 16px;
-}
-
-div.solution h4 {
-  color: #f1b24a;
-}
-
-div.solution h4:first-child {
-  margin-top: 4px;
-}
-
-div.solution pre {
-  background-color: #333;
-  color: white;
-  padding: 8px;
-  border-radius: 4px;
-  margin: 8px 8px;
-}
