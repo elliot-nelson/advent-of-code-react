@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from './layout';
 
 export default function PuzzlePage({ year, day, title, children }) {
-  return <Layout>
+  const githubUrl = `https://github.com/elliot-nelson/advent-of-code-react/blob/main/src/pages/${year}/${String(day).padStart(2, '0')}/index.js`;
+
+  return <Layout githubUrl={githubUrl}>
     <Helmet>
       <title>{year} Day {day} - {title}</title>
       <meta name="author" content="Elliot Nelson" />
