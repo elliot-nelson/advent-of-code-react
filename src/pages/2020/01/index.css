@@ -8,35 +8,6 @@
   padding: 0px;
 }
 
-.puzzle-2020-01 .solution.part1 {
-  background-color: #0090d9;
-  margin: 16px;
-  padding: 16px;
-  color: white;
-}
-.puzzle-2020-01 .solution.part2 {
-  background-color: #00b30c;
-  margin: 16px;
-  padding: 16px;
-  color: white;
-}
-
-.puzzle-2020-01 .solution h4 {
-  color: white;
-}
-
-.puzzle-2020-01 .solution h4:first-child {
-  margin-top: 4px;
-}
-
-.puzzle-2020-1 .solution pre {
-  background-color: #333;
-  color: white;
-  padding: 8px;
-  border-radius: 4px;
-  margin: 8px 8px;
-}
-
 .puzzle-2020-01 li {
   background-color: #ce8859;
   border-radius: 4px;

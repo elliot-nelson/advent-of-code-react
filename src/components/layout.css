@@ -36,3 +36,33 @@ a {
   color: white;
   color: #f2d43d;
 }
+
+div.solution.part1 {
+  background-color: #0090d9;
+  margin: 16px;
+  padding: 16px;
+  color: white;
+}
+
+div.solution.part2 {
+  background-color: #00b30c;
+  margin: 16px;
+  padding: 16px;
+  color: white;
+}
+
+div.solution h4 {
+  color: white;
+}
+
+div.solution h4:first-child {
+  margin-top: 4px;
+}
+
+div.solution pre {
+  background-color: #333;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  margin: 8px 8px;
+}
