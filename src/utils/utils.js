@@ -11,6 +11,13 @@ export async function getPuzzleInput(filename) {
 }
 
 /**
+ * Puzzle paths.
+ */
+export function puzzlePath(year, day) {
+  return `/${year}/${String(day).padStart(2, '0')}/`;
+}
+
+/**
  * Take a given width & height and compare it to the actual client width & height,
  * returning the best `scale` that will fit the desired width and height onto the screen
  * (with extra padding either left/right or top/bottom).

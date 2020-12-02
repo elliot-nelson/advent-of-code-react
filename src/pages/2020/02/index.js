@@ -146,7 +146,7 @@ class Puzzle extends Component {
 }
 
 export default function Page() {
-  return <PuzzlePage year="2020" day="2" title="Password Philosophy">
+  return <PuzzlePage year="2020" day="2">
     <Puzzle />
   </PuzzlePage>;
 }

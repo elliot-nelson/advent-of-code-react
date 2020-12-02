@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'gatsby';
 import Layout from '../../components/layout';
 import './index.css';
+import { PUZZLES } from '../../utils/puzzles';
+import { puzzlePath } from '../../utils/utils';
 
 export default function Page() {
   const year = 2020;
@@ -13,7 +15,9 @@ export default function Page() {
     </header>
     <div className="puzzle-index">
       <ul>
-        <li><Link to="/2020/01/">Day 1 <FontAwesomeIcon icon="star" /> Report Repair</Link></li>
+        {Object.keys(PUZZLES[year]).map(day =>
+          <li><Link to={puzzlePath(year, day)}>Day {day} <FontAwesomeIcon icon="star" /> {PUZZLES[year][day]}</Link></li>
+        )}
       </ul>
     </div>
   </Layout>;
