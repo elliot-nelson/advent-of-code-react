@@ -9,6 +9,11 @@ body {
   color: #333;
 }
 
+html.fullscreen div.layout {
+  width: 100vw;
+  height: 100vh;
+}
+
 header {
   background-color: #1c8c7a;
   background-color: #333;
@@ -18,6 +23,7 @@ header {
   cursor: default;
   color: #ffffff;
   line-height: 2em;
+  height: 2em;
   padding: 0 16px;
   font-weight: 600;
   color: #f2d43d;

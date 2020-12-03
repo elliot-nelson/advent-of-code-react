@@ -1,0 +1,57 @@
+.puzzle-2020-03 {
+  position: absolute;
+  top: 2em;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.puzzle-2020-03 canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.puzzle-2020-03 .floater {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+/*
+ * Terminal styling inspired by https://css-tricks.com/old-timey-terminal-styling/
+ */
+.puzzle-2020-02 div.password-terminal {
+  background-color: #334033;
+  background-color: black;
+  background-image: radial-gradient(
+    rgba(0, 150, 0, 0.75), black 120%
+  );
+  color: #fff;
+  text-shadow: 0px 0px 3px #00ff00;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 15%;
+  position: relative;
+}
+
+@keyframes filter {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 0px -32px; }
+}
+
+div.password-terminal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px,
+    transparent, transparent 3px
+  );
+  animation-name: filter;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}

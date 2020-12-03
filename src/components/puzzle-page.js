@@ -5,13 +5,18 @@ import Layout from './layout';
 import { puzzlePath} from '../utils/utils';
 import { PUZZLES } from '../utils/puzzles';
 
-export default function PuzzlePage({ year, day, children }) {
+export default function PuzzlePage({ year, day, fullscreen, children }) {
   const title = PUZZLES[year][day];
   const githubUrl = 'https://github.com/elliot-nelson/advent-of-code-react/blob/main/src/pages' +
     puzzlePath(year, day) + 'index.js';
 
+  const htmlAttributes = {};
+  if (fullscreen) {
+    htmlAttributes.className = 'fullscreen';
+  }
+
   return <Layout githubUrl={githubUrl}>
-    <Helmet>
+    <Helmet htmlAttributes={htmlAttributes}>
       <title>{year} Day {day} - {title}</title>
       <meta name="author" content="Elliot Nelson" />
       <meta name="description" content="Solutions to AdventOfCode puzzles, animated in React." />
