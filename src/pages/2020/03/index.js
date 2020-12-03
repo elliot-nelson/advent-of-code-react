@@ -7,16 +7,15 @@ import './index.css';
 
 /* Puzzle Solution */
 
-function* solve(map, pos, slope, frames) {
+function* solve(map, pos, slope) {
   // A hashmap of hit trees
   let collisions = {};
 
   // Count
   let trees = 0;
 
-  // Adjust speed based on desired number of animation frames
-  let speed = (map.length - pos.y) / slope.y / frames;
-  speed = 0.1;
+  // Speed will increase as time passes
+  let speed = 0.1;
 
   // Track the "next" location to hit
   let next = { x: 0, y: 0 };
