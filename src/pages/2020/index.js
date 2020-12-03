@@ -16,7 +16,9 @@ export default function Page() {
     <div className="puzzle-index">
       <ul>
         {Object.keys(PUZZLES[year]).map(day =>
-          <li><Link to={puzzlePath(year, day)}>Day {day} <FontAwesomeIcon icon="star" /> {PUZZLES[year][day]}</Link></li>
+          <li key={`${year} ${day}`}>
+            <Link to={puzzlePath(year, day)}>Day {day} <FontAwesomeIcon icon="star" /> {PUZZLES[year][day]}</Link>
+          </li>
         )}
       </ul>
     </div>
