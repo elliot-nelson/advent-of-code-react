@@ -1,4 +1,6 @@
-/* Utilities */
+// React utilities
+//
+// Utilities for React implementations
 
 /**
  * Retrieve a puzzle input as an array of lines.

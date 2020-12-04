@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './index.css';
 import Layout from '../../../components/layout';
-import { getPuzzleInput, canvasFitDimensions } from '../../../utils/utils';
+import { getPuzzleInput, canvasFitDimensions } from '../../../utils/react';
 
 /* Puzzle Solution */
 

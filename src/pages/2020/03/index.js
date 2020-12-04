@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PuzzlePage from '../../../components/puzzle-page';
-import { getPuzzleInput, loadImage, resizeCanvas } from '../../../utils/utils';
+import { getPuzzleInput, loadImage, resizeCanvas } from '../../../utils/react';
 import './index.css';
 
 /* Puzzle Solution */

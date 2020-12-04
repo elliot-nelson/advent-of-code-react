@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Layout from '../../components/layout';
 import './index.css';
 import { PUZZLES } from '../../utils/puzzles';
-import { puzzlePath } from '../../utils/utils';
+import { puzzlePath } from '../../utils/react';
 
 export default function Page() {
   const year = 2020;
