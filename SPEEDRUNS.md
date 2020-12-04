@@ -35,13 +35,14 @@ various pieces of data into the right type afterwards.
 //   `false` means DO NOT include in the result (ignore it)
 //   any other value should be a function
 function scan(string, regex, ...transformers) {
-    let result = [];
-    let match = string.match(regex);
-    if (!match) return;
-    for (let i = 1; i < regex.length; i++) {
-        if (transform[i] === false) continue;
-        result.push(transform[i] && transform[i] !== true ? transform[i](match[i]) : match[i]);
-    }
+  let result = [];
+  let match = string.match(regex);
+  if (!match) return;
+  for (let i = 1; i < match.length; i++) {
+    if (transformers[i - 1] === false) continue;
+    result.push(transformers[i - 1] && transformers[i - 1] !== true ? transformers[i - 1](match[i]) : match[i]);
+  }
+  return result;
 }
 
 const line = `INV 3-5: 0x00002938423`;

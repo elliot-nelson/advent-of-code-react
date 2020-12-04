@@ -1,7 +1,8 @@
 // The "zero day" version is a fast node script to try and validate a
 // solution. It might not exist if I didn't race that day.
 
-const fs = require('fs');
+import * as fs from 'fs';
+import { int, hex, obj, scan } from '../../../src/utils/util.js';
 
 function getPuzzleInput(filename) {
     let lines = fs.readFileSync(filename, 'utf8').split('\n');
@@ -19,10 +20,6 @@ function valid1(passport) {
     }
 
     return true;
-}
-
-function int(x) {
-    return parseInt(x, 10);
 }
 
 function valid2(passport) {

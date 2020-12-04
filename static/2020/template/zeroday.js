@@ -2,6 +2,7 @@
 // solution. It might not exist if I didn't race that day.
 
 const fs = require('fs');
+const { int, hex, obj, scan } = require('../../util');
 
 function getPuzzleInput(filename) {
     let lines = fs.readFileSync(filename, 'utf8').split('\n');
