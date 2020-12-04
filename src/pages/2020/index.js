@@ -11,13 +11,16 @@ export default function Page() {
 
   return <Layout>
     <header>
-      <a href="">All</a> <FontAwesomeIcon icon="angle-right" /> {year}
+      <a href="/">All</a> <FontAwesomeIcon icon="angle-right" /> {year}
     </header>
     <div className="puzzle-index">
       <ul>
         {Object.keys(PUZZLES[year]).map(day =>
           <li key={`${year} ${day}`}>
-            <Link to={puzzlePath(year, day)}>Day {day} <FontAwesomeIcon icon="star" /> {PUZZLES[year][day]}</Link>
+            <Link to={puzzlePath(year, day)}>
+              <h4>Day {day} <FontAwesomeIcon icon="star" /> {PUZZLES[year][day]}</h4>
+              <img src={`${puzzlePath(year, day)}card.png`} />
+            </Link>
           </li>
         )}
       </ul>

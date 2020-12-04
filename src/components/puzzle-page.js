@@ -26,7 +26,7 @@ export default function PuzzlePage({ year, day, fullscreen, children }) {
       <meta name="twitter:image" content={`https://advent-of-code.7tonshark.com/${year}/${String(day).padStart(2, '0')}/card.png` } />
     </Helmet>
     <header>
-      <a href="">All</a> <FontAwesomeIcon icon="angle-right" /> <a href={`/${year}/`}>{year}</a> <FontAwesomeIcon icon="angle-right" /> Day {day} <FontAwesomeIcon icon="star" className="gold-star" /> {title}
+      <a href="/">All</a> <FontAwesomeIcon icon="angle-right" /> <a href={`/${year}/`}>{year}</a> <FontAwesomeIcon icon="angle-right" /> Day {day} <FontAwesomeIcon icon="star" className="gold-star" /> {title}
     </header>
     {children}
   </Layout>;
