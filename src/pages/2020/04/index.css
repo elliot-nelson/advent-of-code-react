@@ -1,0 +1,76 @@
+.puzzle-2020-04 .passports {
+  margin: 16px auto;
+  width: 400px;
+  padding: 0px;
+}
+
+.puzzle-2020-04 .passport {
+  background-color: #fff;
+  border: solid 2px #333;
+  border-radius: 8px;
+  width: 400px;
+  font-family: Courier, monospace;
+  color: black;
+  text-shadow: 1px 1px #666;
+  line-height: 2em;
+  margin-bottom: 8px;
+}
+
+.puzzle-2020-04 .passport:nth-child(2) {
+  opacity: 0.7;
+}
+
+.puzzle-2020-04 .passport:nth-child(3) {
+  opacity: 0.5;
+}
+
+.puzzle-2020-04 .passport.invalid {
+  background: linear-gradient(
+    -45deg,
+    white,
+    white 45%,
+    rgba(255, 0, 0, 0.5) 46%,
+    rgba(255, 0, 0, 0.5) 54%,
+    white 55%,
+    white
+  );
+}
+
+.puzzle-2020-04 .passport.valid {
+  background: linear-gradient(
+    90deg,
+    white,
+    white 84%,
+    #66ff66 85%
+  );
+}
+
+.puzzle-2020-04 .passport ul {
+  display: inline-flex;
+  flex-flow: row wrap;
+  list-style: none;
+}
+
+.puzzle-2020-04 .passport li {
+  padding: 4px;
+}
+
+.puzzle-2020-01 li.search1 {
+  background-color: #00a1f2;
+  transition: none;
+}
+
+.puzzle-2020-01 li.search2 {
+  background-color: #00cc0e;
+  transition: none;
+}
+
+.puzzle-2020-01 li span {
+  position: absolute;
+  left: 0.33em;
+  top: -0.33em;
+  z-index: 99;
+  opacity: 0.3;
+  font-size: 3em;
+  color: white;
+}
