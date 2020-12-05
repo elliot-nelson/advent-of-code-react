@@ -10,36 +10,10 @@ function getPuzzleInput(filename) {
     return lines;
 }
 
-function getRow(spec) {
-    let range = [0, 128];
-
-    for (let i = 0; i < 7; i++) {
-        if (spec[i] === 'F') {
-            range[1] -= (range[1] - range[0]) / 2;
-        } else {
-            range[0] += (range[1] - range[0]) / 2;
-        }
-    }
-
-    return range[0];
-}
-
-function getCol(spec) {
-    let range = [0, 8];
-
-    for (let i = 7; i < 10; i++) {
-        if (spec[i] === 'L') {
-            range[1] -= (range[1] - range[0]) / 2;
-        } else {
-            range[0] += (range[1] - range[0]) / 2;
-        }
-    }
-
-    return range[0];
-}
-
 function getSeat(spec) {
-    let row = getRow(spec), col = getCol(spec), id = (row * 8) + col;
+    let id = parseInt(spec.replace(/F|L/g, '0').replace(/B|R/g, '1'), 2),
+        row = id & 0b111,
+        col = id >> 3;
 
     return { row, col, id };
 }
