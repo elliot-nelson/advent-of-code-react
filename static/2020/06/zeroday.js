@@ -5,7 +5,7 @@ const { createHash } = require('crypto');
 const { getInput, int, hex, obj, scan, union, difference, intersection } = require('../../util');
 
 function answers(group) {
-    return union(group.replace(/[^a-z]/g, '').split(''));
+    return union(group.split('\n').map(line => line.split('')).flat());
 }
 
 function answers2(group) {
