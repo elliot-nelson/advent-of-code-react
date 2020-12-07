@@ -4,44 +4,27 @@
 const fs = require('fs');
 const { getInput, parseInt2, parseInt10, parseInt16, obj, scan, union, intersection, difference } = require('../../util');
 
-function parseRules(input) {
-    let rules = {};
-
-    for (let line of input) {
-        let [color, contains] = line.replace(/\.$/, '').split(' bags contain ');
-        contains = contains.split(', ');
-        if (contains[0] === 'no other bags')
-            rules[color] = {};
-        else
-            rules[color] = Object.fromEntries(contains.map(x => scan(x, /(\d+) (.+) bag/, parseInt10, true).reverse()));
-    }
-
-    return rules;
+function parseRules(lines) {
+    return Object.fromEntries(
+        lines.map(line => scan(line, /(.+) bags contain (.+)\.$/, true, list => {
+            list = list.split(', ').filter(x => x !== 'no other bags').map(rule =>
+                scan(rule, /(\d+) (.+) bag/, parseInt10, true).reverse()
+            );
+            return list.length ? Object.fromEntries(list) : {};
+        }))
+    );
 }
 
 function canContain(rules, color) {
-    let visited = {};
-    let queue = [color];
-
-    while (queue.length > 0) {
-        let search = queue.shift();
-        if (visited[search]) continue;
-        visited[search] = true;
-
-        queue = queue.concat(Object.keys(rules).filter(key => rules[key][search]));
-    }
-
-    return difference(Object.keys(visited), color);
+    return union(
+        ...Object.keys(rules).filter(key => rules[key][color]).map(search => canContain(rules, search).concat(search))
+    );
 }
 
-function countBags(rules, color) {
-    let count = 1;
-
-    for (let key of Object.keys(rules[color])) {
-        count += countBags(rules, key) * rules[color][key];
-    }
-
-    return count;
+function countBagsInside(rules, color) {
+    return Object.keys(rules[color]).reduce((sum, key) =>
+        sum + (1 + countBagsInside(rules, key)) * rules[color][key], 0
+    );
 }
 
 async function puzzle(input) {
@@ -49,7 +32,7 @@ async function puzzle(input) {
 
     console.log('Part 1 =>', canContain(rules, 'shiny gold').length);
 
-    console.log('Part 2 =>', countBags(rules, 'shiny gold') - 1);
+    console.log('Part 2 =>', countBagsInside(rules, 'shiny gold'));
 }
 
 puzzle(getInput(process.argv[2]));

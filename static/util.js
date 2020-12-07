@@ -51,12 +51,12 @@ function obj(array, keys) {
 }
 
 function union(...arrays) {
-  let a = arrays.shift().concat(...arrays);
+  let a = (arrays.shift() || []).concat(...arrays);
   return [...new Set(a)];
 }
 
 function intersection(...arrays) {
-  let a = arrays.shift(), b;
+  let a = arrays.shift() || [], b;
   while (b = arrays.shift()) {
     a = a.filter(x => b.includes(x));
   }
@@ -64,7 +64,7 @@ function intersection(...arrays) {
 }
 
 function difference(...arrays) {
-  let a = arrays.shift(), b;
+  let a = arrays.shift() || [], b;
   while (b = arrays.shift()) {
     a = a.filter(x => !b.includes(x));
   }
