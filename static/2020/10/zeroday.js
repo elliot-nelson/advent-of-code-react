@@ -35,25 +35,18 @@ function countGroupCombos(group) {
         if ((i & (max >> 1)) === 0) continue;
 
         let possible = group.filter((value, index) => i & (1 << index));
-        let valid = true;
-        for (let j = 1; j < possible.length; j++) {
-            if (possible[j] - possible[j - 1] > 3) valid = false;
-        }
-        if (valid) found++;
+        if (!possible.find((value, index) => index > 0 && possible[index] - possible[index - 1] > 3)) found++;
     }
+
     return found;
 }
 
 function countCombinations(chain) {
-    let groups = [[]], group = groups[0];
-
-    for (let i = 0; i < chain.length; i++) {
-        if (i > 0 && chain[i] - chain[i - 1] === 3) {
-            group = [];
-            groups.push(group);
-        }
-        group.push(chain[i]);
-    }
+    let groups = chain.reduce((groups, item, index) => {
+        if (index > 0 && chain[index] - chain[index - 1] === 3) groups.push([]);
+        groups[groups.length - 1].push(item);
+        return groups;
+    }, [[]]);
 
     groups[0].unshift(0);
 
